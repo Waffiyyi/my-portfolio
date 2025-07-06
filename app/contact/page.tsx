@@ -5,72 +5,19 @@ import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
 import {Button} from "@/components/ui/button"
 import {Input} from "@/components/ui/input"
 import {Textarea} from "@/components/ui/textarea"
-import {Mail, MessageSquare, Send, MapPin, Phone, Clock} from "lucide-react"
-import {SiGithub as Github, SiX as Twitter, SiLinkedin as Linkedin} from "react-icons/si";
+import {Mail, MessageSquare, Send} from "lucide-react"
 import React, {useState} from "react";
 import Link from "next/link";
 import {Badge} from "@/components/ui/badge";
+import {contactInfo, socialLinks} from "@/constants/contact";
+import {containerVariantsGlobal, itemVariantsGlobal} from "@/constants";
+
 
 export default function ContactPage() {
-    const containerVariants = {
-        hidden: {opacity: 0},
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-            },
-        },
-    }
+    const containerVariants = containerVariantsGlobal;
+    const itemVariants= itemVariantsGlobal;
 
-    const itemVariants = {
-        hidden: {opacity: 0, y: 20},
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5,
-                // ease: "easeOut",
-            },
-        },
-    }
 
-    const socialLinks = [
-        {
-            icon: Github,
-            label: "GitHub",
-            href: "https://github.com/waffiyyi",
-            color: "hover:text-gray-900 dark:hover:text-white"
-        },
-        {
-            icon: Linkedin,
-            label: "LinkedIn",
-            href: "https://linkedin.com/in/waffiyyi-fashola",
-            color: "hover:text-blue-600"
-        },
-        {
-            icon: Twitter,
-            label: "Twitter",
-            href: "https://x.com/_aka_echo",
-            color: "hover:text-blue-400"
-        },
-    ]
-
-    const contactInfo = [
-        {
-            icon: Mail,
-            label: "Email",
-            value: "fasholawafiyyi@gmail.com",
-            href: "mailto:fasholawafiyyi@gmail.com"
-        },
-        {
-            icon: MapPin,
-            label: "Location",
-            value: "Lagos, NG",
-            href: "#"
-        },
-        {icon: Clock, label: "Timezone", value: "WAT (GMT+1)", href: "#"},
-    ]
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [error, setError] = useState("")
@@ -136,7 +83,7 @@ export default function ContactPage() {
                             <Badge variant={"secondary"}> Available</Badge >
                         </div >
                     </motion.div >
-                    <div className="grid lg:grid-cols-2 gap-12">
+                    <div className="grid lg:grid-cols-2 gap-12" id={"contact"}>
                         {/* Contact Form */}
                         <motion.div variants={itemVariants}>
                             <Card className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-2 border-slate-200 dark:border-slate-700">
@@ -305,7 +252,7 @@ export default function ContactPage() {
                                         whileHover={{scale: 1.05}}
                                         whileTap={{scale: 0.95}}
                                     >
-                                        <Link href={"mailto:fasholawafiyyi@gmail.com"}>
+                                        <Link href={"#contact"}>
                                             <Button
                                                 size="lg"
                                                 variant="secondary"

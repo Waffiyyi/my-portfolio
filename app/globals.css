@@ -91,3 +91,7 @@
 .dark .chess-piece-shadow {
   filter: drop-shadow(2px 4px 8px rgba(255, 255, 255, 0.1));
 }
+
+html{
+    scroll-behavior: smooth;
+}

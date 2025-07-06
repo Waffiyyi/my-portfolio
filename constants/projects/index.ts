@@ -1,0 +1,121 @@
+import Icons from "@/components/icons";
+
+export const projects = [
+    {
+        id: 1,
+        title: "CraveCourier",
+        description: "A food delivering full stack application where users are provided with a wide array of trusted and top tier restaurants near them. Also, Restaurant Owners can easily manage their restaurant and orders with their admin panel.",
+        category: "great",
+        icon: Icons.GreatMove,
+        tech: ["React", "Redux", "JavaScript", "MUI", "Tailwind", "Java", "Spring Boot", "PostgreSQL"],
+        github: "https://github.com/Waffiyyi/online-food-ordering-app-frontend",
+        demo: "https://crave-courier.vercel.app",
+        featured: true,
+        type: "Personal",
+        status: "Completed: May 2024"
+    },
+    {
+        id: 2,
+        title: "ReadersThought",
+        description: "A web app that acts as a digital diary for readers. It allows users to log their thoughts on books, articles, and other written material, categorize entries, and tag them for easy reference. The app prioritizes privacy and security, offering flexible settings for sharing entries.",
+        category: "inaccuracy",
+        icon: Icons.InaccuracyMove,
+        tech: ["React", "Redux", "TypeScript", "MUI", "Tailwind", "Firebase"],
+        github: "https://github.com/Waffiyyi/ReadersThought",
+        demo: "https://readers-thought.vercel.app",
+        featured: false,
+        type: "Personal",
+        status: "Completed: Feb 2023"
+    },
+    {
+        id: 3,
+        title: "Book Marketplace",
+        description: "A comprehensive full-stack application for buying books, featuring personalized recommendations and a seamless ordering process.",
+        category: "inaccuracy",
+        icon: Icons.InaccuracyMove,
+        tech: ["Next.js", "React", "Redux", "JavaScript", "MUI", "Tailwind", "Java", "Spring Boot", "PostgreSQL"],
+        github: "https://github.com/Waffiyyi/book-market-place-frontend",
+        demo: "https://book-market-place.vercel.app",
+        featured: false,
+        type: "Personal",
+        status: "Completed: Oct 2024"
+    },
+    {
+        id: 4,
+        title: "Restful API Fashion Blog",
+        description: "A comprehensive RESTful fashion blog application allowing the blog owner to showcase various design categories. Users can interact by liking, commenting on posts, and following other users. The platform provides features such as viewing trending or popular designs, personalized recommendations, and managing profiles.",
+        category: "great",
+        icon: Icons.GreatMove,
+        tech: ["Java", "Spring Boot", "PostgreSQL"],
+        github: "https://github.com/Waffiyyi/restful-api-fashion-blog",
+        demo: "https://selfish-orsa-fashionblog-8e855973.koyeb.app/swagger-ui/index.html",
+        featured: false,
+        type: "Personal",
+        status: "Completed: Dec 2023"
+    },
+    {
+        id: 5,
+        title: "Portfolio Website",
+        description: "Personal portfolio website with custom animations, modern UI and contact form integration.",
+        category: "great",
+        icon: Icons.GreatMove,
+        tech: ["Next.js", "Tailwind CSS", "TypeScript", "Framer Motion"],
+        github: "https://github.com/Waffiyyi/my-portfolio",
+        demo: "https://waffiyyi-fashola.vercel.app",
+        featured: false,
+        type: "Personal",
+        status: "Completed: Jun 2025"
+    },
+    {
+        id: 6,
+        title: "Event Booking Restful API",
+        description: "A RESTful application with a user-friendly platform connecting event-goers with nearby events. Users can seamlessly discover, book, and pay for event tickets. Event-creators have the flexibility to easily create and manage their events, while attendees receive real-time updates.",
+        category: "great",
+        icon: Icons.GreatMove,
+        tech: ["Java", "Spring Boot", "PostgreSQL", "PayStack"],
+        github: "#",
+        demo: "https://arrogant-maribeth-waffiyyidev-c3f6c2c2.koyeb.app/swagger-ui/index.html",
+        featured: false,
+        type: "Personal",
+        status: "Completed: Oct 2023"
+    },
+    {
+        id: 7,
+        title: "Quiz App",
+        description: "An interactive app to enhance general knowledge in various categories such as Geography, Maths, and Grammar.",
+        category: "inaccuracy",
+        icon: Icons.InaccuracyMove,
+        tech: ["Java", "GUI Programming", "OOP"],
+        github: "https://github.com/Waffiyyi/quiz-app",
+        demo: "#",
+        featured: false,
+        type: "School",
+        status: "Completed: Aug 2023"
+    },
+    {
+        id: 8,
+        title: "Todo App",
+        description: "A Microsoft Todo App clone, feature rich with user authentication, task management, and a clean UI.",
+        category: "great",
+        icon: Icons.GreatMove,
+        tech: ["React", "Redux", "TypeScript", "Tailwind", "Java", "Spring Boot", "PostgreSQL"],
+        github: "https://github.com/Waffiyyi/clipron_todo_app",
+        demo: "https://clipron-todo.vercel.app",
+        featured: true,
+        type: "Personal",
+        status: "Completed: May 2025"
+    },
+    {
+        id: 9,
+        title: "PAHAS Web App",
+        description: "A responsive and modern event platform built for the Pan-African Health Alliance Summit. It features a clean layout, speaker highlights, event countdown, and informational sections tailored to reflect the summit's mission and theme.",
+        category: "great",
+        icon: Icons.GreatMove,
+        tech: ["React","TypeScript", "Tailwind"],
+        github: "#",
+        demo: "https://pahas.hcaconsults.com",
+        featured: false,
+        type: "Contract",
+        status: "Completed: Mar 2025"
+    }
+]

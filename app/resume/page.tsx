@@ -6,99 +6,14 @@ import {Badge} from "@/components/ui/badge"
 import {Button} from "@/components/ui/button"
 import {FileText, Download, Briefcase, GraduationCap, Award, Calendar, MapPin, ExternalLink} from "lucide-react"
 import Link from "next/link";
+import {certifications, education, experience, skills} from "@/constants/resume";
+import {containerVariantsGlobal, itemVariantsGlobal} from "@/constants";
 
-const experience = [
-    {
-        title: "Java Software Engineer",
-        company: "Seamless",
-        location: "Remote",
-        period: "2024 (Jan) - Present",
-        description:
-            "Led backend development and infrastructure setup for scalable applications.",
-        achievements: [
-            "Architected efficient database schemas to optimize query performance and scalability",
-            "Implemented CI/CD pipelines using GitHub Actions, reducing manual deployment efforts by 90%",
-            "Built a responsive Email Service using semantic HTML tables and CSS for cross-client consistency",
-            "Ensured data encryption and security for sensitive records, enhancing system integrity",
-            "Managed and deployed AWS services (EC2, ECR) to maintain high availability and uptime"
-        ],
-        link : "https://buildwithseamless.co/"
-    },
-    {
-        title: "Software Engineer",
-        company: "Decagon",
-        location: "Remote",
-        period: "2023 (Jun) - 2023 (Dec)",
-        description:
-            "Contributed to building a fitness and diet tracking app using Java and React.",
-        achievements: [
-            "Developed RESTful APIs in Java with Spring Boot for core app functionalities",
-            "Optimized PostgreSQL queries and schema for reliable data handling",
-            "Collaborated with frontend team to deliver user-friendly interfaces in React",
-            "Increased test coverage by 60% through unit and integration testing",
-            "Worked in Agile sprints to deliver consistent feature updates and bug fixes"
-        ],
-        link: "https://decagon.institute/"
-    },
-]
 
-const education = [
-    {
-        degree: "Bachelor of Science in Computer Science",
-        school: "University Of The People",
-        location: "California, USA",
-        period: "2023 - 2026",
-        gpa: "3.22/4.0",
-        relevant: ["Data Structures", "Algorithms", "Software Engineering", "Database Systems"],
-    },
-]
-
-const certifications = [
-    {
-        name: "Scrum Fundamentals Certified",
-        issuer: "SCRUMstudy",
-        date: "2023",
-        id: "977137",
-    },
-    {
-        name: "Software Engineering and Leadership Training",
-        issuer: "Decagon",
-        date: "2023",
-        id: "SQ016/035023",
-    },
-]
-
-const skills = {
-    Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js"],
-    Backend: ["Java", "SpringBoot", "Spring MVC", "SQL", "NoSQL"],
-    Database: ["PostgreSQL", "MongoDB", "Redis", "MySQL"],
-    "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "CI/CD"],
-    Tools: ["Git", "Webpack", "Postman"],
-}
 
 export default function ResumePage() {
-    const containerVariants = {
-        hidden: {opacity: 0},
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-            },
-        },
-    }
-
-    const itemVariants = {
-        hidden: {opacity: 0, y: 20},
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5,
-                // ease: "easeOut",
-            },
-        },
-    }
+    const containerVariants = containerVariantsGlobal;
+    const itemVariants= itemVariantsGlobal;
 
     return (
         <div className="min-h-screen py-20 px-4 chessboard-pattern">
@@ -157,7 +72,10 @@ export default function ResumePage() {
                                         <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-600 rounded-full"></div >
                                         <div className="space-y-3">
                                             <div >
-                                                <h3 className="text-xl font-semibold">{job.title}</h3 >
+                                                <div className={"flex items-center gap-3"}>
+                                                    <h3 className="text-xl font-semibold">{job.title}</h3 >
+                                                    <Badge variant={"outline"}> {job.role}</Badge>
+                                                </div>
                                                 <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-slate-600 dark:text-slate-300">
                                                     <div className="flex items-center">
                                                         <Link href={job.link}>

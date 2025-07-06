@@ -3,64 +3,15 @@
 import {motion} from "framer-motion"
 import {Card, CardContent} from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge"
-import {User, Code, Lightbulb, Rocket, Heart, Coffee, Music, Gamepad2} from "lucide-react"
-import {GiSoccerBall} from "react-icons/gi";
+import {User, Code, Lightbulb, Rocket, Heart,} from "lucide-react"
+import {Arsenal} from "@/components/arsenal";
+import {interests, skills} from "@/constants/about";
+import {containerVariantsGlobal, itemVariantsGlobal} from "@/constants";
 
 export default function AboutPage() {
-    const skills = [
-        "React",
-        "Next.js",
-        "Vue.js",
-        "TypeScript",
-        "Redux",
-        "Tailwind CSS",
-        "Java",
-        "PostgreSQL",
-        "MongoDB",
-        "AWS",
-        "Docker",
-    ]
 
-    const interests = [
-        {
-            icon: Coffee,
-            label: "Coffee Brewing",
-            description: "Perfect extraction, every time."
-        },
-        {
-            icon: GiSoccerBall,
-            label: "Football",
-            description: "Ninety minutes, one ball, endless drama."
-        },
-        {
-            icon: Gamepad2,
-            label: "Strategy Games",
-            description: "Chess, LOL, and tactical thinking."
-        },
-    ]
-
-    const containerVariants = {
-        hidden: {opacity: 0},
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-            },
-        },
-    }
-
-    const itemVariants = {
-        hidden: {opacity: 0, y: 20},
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5,
-                // ease: "easeOut",
-            },
-        },
-    }
+    const containerVariants = containerVariantsGlobal;
+    const itemVariants= itemVariantsGlobal;
 
     return (
         <div className="min-h-screen py-20 px-4 chessboard-pattern">
@@ -120,11 +71,12 @@ export default function AboutPage() {
                                         </p >
                                         <p >
                                             When I'm not coding, you'll find me
-                                            studying chess openings, brewing the
-                                            perfect cup of coffee, or
-                                            exploring new technologies that push
-                                            the boundaries of what's possible on
-                                            the web.
+                                            studying chess openings, diving into
+                                            foreign languages to decode
+                                            cultures, or exploring new
+                                            technologies that push the
+                                            boundaries of what's possible on the
+                                            web.
                                         </p >
                                     </div >
                                 </CardContent >
@@ -181,22 +133,23 @@ export default function AboutPage() {
                                     <Rocket className="h-6 w-6 mr-3 text-green-600 dark:text-green-400"/>
                                     <h2 className="text-2xl font-bold">Arsenal</h2 >
                                 </div >
-                                <div className="flex flex-wrap gap-3">
+                                <div className="flex flex-wrap gap-4">
                                     {skills.map((skill, index) => (
-                                        <motion.div
-                                            key={skill}
-                                            initial={{opacity: 0, scale: 0.8}}
-                                            animate={{opacity: 1, scale: 1}}
-                                            transition={{delay: index * 0.1}}
-                                            whileHover={{scale: 1.1, y: -2}}
+                                        <Arsenal
+                                            key={skill.name}
+                                            delay={skill.delay}
                                         >
-                                            <Badge
-                                                variant="secondary"
-                                                className="px-4 py-2 text-sm font-medium"
+                                            <div
                                             >
-                                                {skill}
-                                            </Badge >
-                                        </motion.div >
+                                                <Badge
+                                                    variant="secondary"
+                                                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium"
+                                                >
+                                                    {skill.icon}
+                                                    {skill.name}
+                                                </Badge >
+                                            </div >
+                                        </Arsenal >
                                     ))}
                                 </div >
                             </CardContent >
