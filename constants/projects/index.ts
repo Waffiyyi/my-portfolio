@@ -101,7 +101,7 @@ export const projects = [
         tech: ["React", "Redux", "TypeScript", "Tailwind", "Java", "Spring Boot", "PostgreSQL"],
         github: "https://github.com/Waffiyyi/clipron_todo_app",
         demo: "https://clipron-todo.vercel.app",
-        featured: true,
+        featured: false,
         type: "Personal",
         status: "Completed: May 2025"
     },

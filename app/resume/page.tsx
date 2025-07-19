@@ -16,7 +16,7 @@ export default function ResumePage() {
     const itemVariants= itemVariantsGlobal;
 
     return (
-        <div className="min-h-screen py-20 px-4 chessboard-pattern">
+        <div className="min-h-screen py-5 px-4 chessboard-pattern">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     variants={containerVariants}

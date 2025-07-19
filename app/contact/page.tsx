@@ -5,50 +5,52 @@ import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
 import {Button} from "@/components/ui/button"
 import {Input} from "@/components/ui/input"
 import {Textarea} from "@/components/ui/textarea"
-import {Mail, MessageSquare, Send} from "lucide-react"
+import {AlertCircle, Mail, MessageSquare, Send} from "lucide-react"
 import React, {useState} from "react";
 import Link from "next/link";
 import {Badge} from "@/components/ui/badge";
 import {contactInfo, socialLinks} from "@/constants/contact";
 import {containerVariantsGlobal, itemVariantsGlobal} from "@/constants";
+import useWeb3Forms from "@web3forms/react";
+import {Label} from "@/components/ui/label"
 
 
 export default function ContactPage() {
     const containerVariants = containerVariantsGlobal;
     const itemVariants= itemVariantsGlobal;
+    const [responseMessage, setResponseMessage] = useState("")
 
-
+    const accessKey = "d297a02d-5749-4ebf-b049-24de7cdada20";
+    const { submit } = useWeb3Forms({
+        access_key: accessKey,
+        settings: {
+            from_name: "Portfolio Contact",
+            subject: "New Contact Message from your Portfolio",
+        },
+        onSuccess: () => {
+            setResponseMessage("Message sent successfully!")
+        },
+        onError: () => {
+            setResponseMessage("Something went wrong. Please try again.")
+        },
+    });
     const [isSubmitting, setIsSubmitting] = useState(false)
-    const [isSubmitted, setIsSubmitted] = useState(false)
-    const [error, setError] = useState("")
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        setIsSubmitting(true)
-        setError("")
-
-        const formData = new FormData(e.currentTarget)
-
-
-        const GET_FORMS_URL = process.env.NEXT_PUBLIC_GET_FORMS_URL;
-        try {
-            const response = await fetch(GET_FORMS_URL as string, {
-                method: "POST",
-                body: formData,
-            })
-
-            if (response.ok) {
-                setIsSubmitted(true)
-            } else {
-                setError("Failed to submit booking. Please try again.")
-            }
-        } catch (error) {
-            setError("Network error. Please check your connection and try again.")
-        } finally {
-            setIsSubmitting(false)
+        e.preventDefault();
+        setIsSubmitting(true);
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
+        try{
+            await submit(data);
+        }catch (e){
+            console.log("error", e);
+            // setResponseMessage(e as  string)
+        }finally {
+            setIsSubmitting(false);
         }
-    }
+    };
     return (
-        <div className="min-h-screen py-20 px-4 chessboard-pattern">
+        <div className="min-h-screen py-5 px-4 chessboard-pattern">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     variants={containerVariants}
@@ -97,55 +99,63 @@ export default function ContactPage() {
                                     <CardContent className="space-y-6">
                                         <div className="grid md:grid-cols-2 gap-4">
                                             <div className="space-y-2">
-                                                <label
+                                                <Label
                                                     htmlFor="name"
                                                     className="text-sm font-medium"
                                                 >
                                                     Name
-                                                </label >
+                                                </Label >
                                                 <Input
                                                     id="name"
+                                                    name="name"
+                                                    required
                                                     placeholder="Your name"
                                                     className="bg-white/50 dark:bg-slate-700/50"
                                                 />
                                             </div >
                                             <div className="space-y-2">
-                                                <label
+                                                <Label
                                                     htmlFor="email"
                                                     className="text-sm font-medium"
                                                 >
                                                     Email
-                                                </label >
+                                                </Label >
                                                 <Input
                                                     id="email"
+                                                    name="email"
                                                     type="email"
+                                                    required
                                                     placeholder="your.email@example.com"
                                                     className="bg-white/50 dark:bg-slate-700/50"
                                                 />
                                             </div >
                                         </div >
                                         <div className="space-y-2">
-                                            <label
-                                                htmlFor="subject"
+                                            <Label
+                                                htmlFor="description"
                                                 className="text-sm font-medium"
                                             >
                                                 Subject
-                                            </label >
+                                            </Label >
                                             <Input
-                                                id="subject"
+                                                id="description"
+                                                name="description"
+                                                required
                                                 placeholder="What's this about?"
                                                 className="bg-white/50 dark:bg-slate-700/50"
                                             />
                                         </div >
                                         <div className="space-y-2">
-                                            <label
+                                            <Label
                                                 htmlFor="message"
                                                 className="text-sm font-medium"
                                             >
                                                 Message
-                                            </label >
+                                            </Label >
                                             <Textarea
                                                 id="message"
+                                                name="message"
+                                                required
                                                 placeholder="Tell me about your project, ideas, or just say hello!"
                                                 rows={6}
                                                 className="bg-white/50 dark:bg-slate-700/50 resize-none"
@@ -164,6 +174,11 @@ export default function ContactPage() {
                                                 <Send className="mr-2 h-5 w-5"/>
                                                 {isSubmitting ? "Sending..." : "Send Message"}
                                             </Button >
+                                            {responseMessage && (
+                                                <div className="p-4 flex justify-center items-center">
+                                                    <span className="text-primary">{responseMessage}</span >
+                                                </div >
+                                            )}
                                         </motion.div >
                                     </CardContent >
                                 </form >
@@ -263,12 +278,6 @@ export default function ContactPage() {
                                             </Button >
                                         </Link >
 
-
-                                    </motion.div >
-                                    <motion.div
-                                        whileHover={{scale: 1.05}}
-                                        whileTap={{scale: 0.95}}
-                                    >
                                     </motion.div >
                                 </div >
                             </CardContent >

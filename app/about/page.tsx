@@ -5,16 +5,87 @@ import {Card, CardContent} from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge"
 import {User, Code, Lightbulb, Rocket, Heart,} from "lucide-react"
 import {Arsenal} from "@/components/arsenal";
-import {interests, skills} from "@/constants/about";
+import {interests, philosophy, skills} from "@/constants/about";
 import {containerVariantsGlobal, itemVariantsGlobal} from "@/constants";
+
+
+
+// const skills = [
+//     {
+//         name: "React",
+//         icon: RiReactjsLine,
+//         color: "text-cyan-400",
+//         delay: 0
+//     },
+//     {
+//         name: "Next.js",
+//         icon: TbBrandNextjs,
+//         color: "text-white",
+//         delay: 0.1
+//     },
+//     {
+//         name: "Vue.js",
+//         icon: FaVuejs ,
+//         color: "text-green-500",
+//         delay: 0.2
+//     },
+//     {
+//         name: "TypeScript",
+//         icon: SiTypescript,
+//         color: "text-blue-500",
+//         delay: 0.3
+//     },
+//     {
+//         name: "Redux",
+//         icon: SiRedux ,
+//         color: "text-purple-600",
+//         delay: 0.4
+//     },
+//     {
+//         name: "Tailwind CSS",
+//         icon: SiTailwindcss ,
+//         color: "text-sky-400",
+//         delay: 0.5
+//     },
+//     {
+//         name: "Java",
+//         icon: FaJava ,
+//         color: "text-orange-600",
+//         delay: 0.6
+//     },
+//     {
+//         name: "PostgreSQL",
+//         icon: SiPostgresql,
+//         color: "text-blue-800",
+//         delay: 0.7
+//     },
+//     {
+//         name: "MongoDB",
+//         icon: SiMongodb,
+//         color: "text-green-600",
+//         delay: 0.8
+//     },
+//     {
+//         name: "AWS",
+//         icon: FaAws,
+//         color: "text-yellow-400",
+//         delay: 0.9
+//     },
+//     {
+//         name: "Docker",
+//         icon: SiDocker ,
+//         color: "text-blue-400",
+//         delay: 1.0
+//     },
+// ];
 
 export default function AboutPage() {
 
     const containerVariants = containerVariantsGlobal;
-    const itemVariants= itemVariantsGlobal;
+    const itemVariants = itemVariantsGlobal;
 
     return (
-        <div className="min-h-screen py-20 px-4 chessboard-pattern">
+        <div className="min-h-screen py-5 px-4 chessboard-pattern">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     variants={containerVariants}
@@ -92,24 +163,7 @@ export default function AboutPage() {
                                         <h2 className="text-2xl font-bold">Philosophy</h2 >
                                     </div >
                                     <div className="space-y-4">
-                                        {[
-                                            {
-                                                title: "Strategic Thinking",
-                                                description: "Every feature is planned with the end goal in mind",
-                                            },
-                                            {
-                                                title: "Clean Code",
-                                                description: "Readable, maintainable, and elegant solutions",
-                                            },
-                                            {
-                                                title: "User First",
-                                                description: "Technology should serve people, not the other way around",
-                                            },
-                                            {
-                                                title: "Continuous Learning",
-                                                description: "The game never ends, there's always a new move to master",
-                                            },
-                                        ].map((item, index) => (
+                                        {philosophy.map((item) => (
                                             <motion.div
                                                 key={item.title}
                                                 whileHover={{x: 5}}
@@ -136,7 +190,7 @@ export default function AboutPage() {
                                 <div className="flex flex-wrap gap-4">
                                     {skills.map((skill, index) => (
                                         <Arsenal
-                                            key={skill.name}
+                                            key={index}
                                             delay={skill.delay}
                                         >
                                             <div
@@ -145,7 +199,8 @@ export default function AboutPage() {
                                                     variant="secondary"
                                                     className="flex items-center gap-2 px-4 py-2 text-sm font-medium"
                                                 >
-                                                    {skill.icon}
+                                                    <skill.icon className={`text-3xl ${skill.color} `}/>
+
                                                     {skill.name}
                                                 </Badge >
                                             </div >

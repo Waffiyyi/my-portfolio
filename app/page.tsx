@@ -54,7 +54,7 @@ export default function HomePage() {
     const isClient = useIsClient()
 
     return (
-        <div className="min-h-screen chessboard-pattern">
+        <div className="min-h-screen py-5 px-4 chessboard-pattern">
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
                 {/* Animated Background Elements */}

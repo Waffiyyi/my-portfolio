@@ -47,7 +47,7 @@ export default function ProjectsPage() {
     }
 
     return (
-        <div className="min-h-screen py-20 px-4 chessboard-pattern">
+        <div className="min-h-screen py-5 px-4 chessboard-pattern">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     variants={containerVariants}

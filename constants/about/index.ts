@@ -8,57 +8,68 @@ import {GiSoccerBall} from "react-icons/gi";
 export const skills = [
     {
         name: "React",
-        icon: <RiReactjsLine className="text-cyan-400 text-3xl"/>,
+        icon: RiReactjsLine,
+        color: "text-cyan-400",
         delay: 0
     },
     {
         name: "Next.js",
-        icon: <TbBrandNextjs className="text-white text-3xl"/>,
+        icon: TbBrandNextjs,
+        color: "text-white",
         delay: 0.1
     },
     {
         name: "Vue.js",
-        icon: <FaVuejs className="text-green-500 text-3xl"/>,
+        icon: FaVuejs ,
+        color: "text-green-500",
         delay: 0.2
     },
     {
         name: "TypeScript",
-        icon: <SiTypescript className="text-blue-500 text-3xl"/>,
+        icon: SiTypescript,
+        color: "text-blue-500",
         delay: 0.3
     },
     {
         name: "Redux",
-        icon: <SiRedux className="text-purple-600 text-3xl"/>,
+        icon: SiRedux ,
+        color: "text-purple-600",
         delay: 0.4
     },
     {
         name: "Tailwind CSS",
-        icon: <SiTailwindcss className="text-sky-400 text-3xl"/>,
+        icon: SiTailwindcss ,
+        color: "text-sky-400",
         delay: 0.5
     },
     {
         name: "Java",
-        icon: <FaJava className="text-orange-600 text-3xl"/>,
+        icon: FaJava ,
+        color: "text-orange-600",
         delay: 0.6
     },
     {
         name: "PostgreSQL",
-        icon: <SiPostgresql className="text-blue-800 text-3xl"/>,
+        icon: SiPostgresql,
+        color: "text-blue-800",
         delay: 0.7
     },
     {
         name: "MongoDB",
-        icon: <SiMongodb className="text-green-600 text-3xl"/>,
+        icon: SiMongodb,
+        color: "text-green-600",
         delay: 0.8
     },
     {
         name: "AWS",
-        icon: <FaAws className="text-yellow-400 text-3xl"/>,
+        icon: FaAws,
+        color: "text-yellow-400",
         delay: 0.9
     },
     {
         name: "Docker",
-        icon: <SiDocker className="text-blue-400 text-3xl"/>,
+        icon: SiDocker ,
+        color: "text-blue-400",
         delay: 1.0
     },
 ];
@@ -78,5 +89,24 @@ export const interests = [
         icon: FaChess,
         label: "Strategy Games",
         description: "Chess, LOL, and tactical thinking."
+    },
+]
+
+export const philosophy= [
+    {
+        title: "Strategic Thinking",
+        description: "Every feature is planned with the end goal in mind",
+    },
+    {
+        title: "Clean Code",
+        description: "Readable, maintainable, and elegant solutions",
+    },
+    {
+        title: "User First",
+        description: "Technology should serve people, not the other way around",
+    },
+    {
+        title: "Continuous Learning",
+        description: "The game never ends, there's always a new move to master",
     },
 ]
