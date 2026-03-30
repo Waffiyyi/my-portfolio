@@ -107,15 +107,29 @@ export const projects = [
     },
     {
         id: 9,
-        title: "PAHAS Web App",
-        description: "A responsive and modern event platform built for the Pan-African Health Alliance Summit. It features a clean layout, speaker highlights, event countdown, and informational sections tailored to reflect the summit's mission and theme.",
+        title: "Style & Grace",
+        description: "A sleek fashion web experience built to emphasize aesthetics, usability, and performance. The platform features a clean, responsive interface with smooth navigation and thoughtfully structured components, demonstrating strong frontend architecture and attention to design detail using modern web technologies.",
         category: "great",
         icon: Icons.GreatMove,
         tech: ["React","TypeScript", "Tailwind"],
         github: "#",
-        demo: "https://pahas.hcaconsults.com",
-        featured: false,
+        demo: "https://style-and-grace.vercel.app",
+        featured: true,
         type: "Contract",
         status: "Completed: Mar 2025"
     }
+    // {
+    //     id: 9,
+    //     title: "PAHAS Web App",
+    //     description: "A responsive and modern event platform built for the Pan-African Health Alliance Summit. It features a clean layout, speaker highlights, event countdown, and informational sections tailored to reflect the summit's mission and theme.",
+    //     category: "great",
+    //     icon: Icons.GreatMove,
+    //     tech: ["React","TypeScript", "Tailwind"],
+    //     github: "#",
+    //     demo: "https://pahas.hcaconsults.com",
+    //     featured: false,
+    //     type: "Contract",
+    //     status: "Completed: Mar 2025"
+    // },
+
 ]
