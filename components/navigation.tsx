@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Crown, User, Target, BookOpen, FileText, Mail, Menu, X, Sun, Moon, Home } from "lucide-react"
+import { Crown, User, Target, FileText, Mail, Menu, X, Sun, Moon, Home } from "lucide-react"
 import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
 

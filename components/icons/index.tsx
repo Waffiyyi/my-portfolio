@@ -1,7 +1,7 @@
 import Image from "next/image";
-import BrilliantMoveImg from "/public/assets/icons/brilliant-move.png";
-import GreatMoveImg from "/public/assets/icons/great-move.png";
-import InaccuracyMoveImg from "/public/assets/icons/inacurracy-move.png";
+import BrilliantMoveImg from "@/public/assets/icons/brilliant-move.png";
+import GreatMoveImg from "@/public/assets/icons/great-move.png";
+import InaccuracyMoveImg from "@/public/assets/icons/inacurracy-move.png";
 
 type IconProps = {
     className?: string;

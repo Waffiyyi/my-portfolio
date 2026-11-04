@@ -49,7 +49,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                                             onClick,
                                                             compact = false,
                                                         }) => {
-    const isPrivate = project.github === "#"
 
     return (
         <motion.div
