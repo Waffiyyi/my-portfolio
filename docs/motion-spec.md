@@ -22,3 +22,15 @@ Desktop pins require width ≥1024px, height ≥650px, a fine pointer and no red
 Fonts are local with stable dimensions. ScrollTrigger refreshes after font readiness, sorts the opening before dependent pins and invalidates measurements on resize. Cleanup reverts component-owned contexts; no global killAll. Keyboard focus reveals cards by moving to the corresponding measured track position. Tab is not trapped in tracks. Mobile dialog explicitly wraps Tab, closes with Escape and restores the menu button.
 
 Intentional adaptations: the reference intercepts wheel input for its street/factory; this portfolio uses document-native measured pins. The original reference storefront/factory/hoodie artwork is replaced by original interface/system and project illustrations. No custom cursor or copied magnetic cursor effect is required for navigation. The closing scene is shorter and unpinned. Exact proprietary easing, loader algorithm and hidden easter eggs are not claimed reproduced.
+
+## Requested cursor follow-up
+
+The supplied `Screen Recording 2026-11-04 at 23.44.04.mov` shows the dot/ring companion on the reference's Cegeta page with the native arrow retained. Read-only inspection of that live page confirmed the following cursor settings, now independently implemented in `cursor-effect.tsx`:
+
+- Dot: 7px; position follows in 0.12s with `power3` easing.
+- Ring: 46px base diameter, 1px border, idle scale 0.6 (27.6px visible diameter); position follows in 0.5s with `power3` easing.
+- Control hover: ring scale 1 over 0.4s; dot scale 0.6 over 0.3s.
+- Project-card hover: ring scale 1.15 with red fill/border; dot scale 0; white 9px monospaced “View” label fades in over 0.25s.
+- Light surfaces: ink dot and 35% ink ring. Dark surfaces: cream dot and 45% cream ring. Surface detection looks through transparent heading overlays and refreshes on scrolling and navigation.
+- Native pointing, text selection and keyboard focus remain intact; the effect is `aria-hidden` and ignores hit testing. Only fine mouse input above 860px with hover and no reduced-motion preference enables it. Pointer exit/window blur hides it; media changes, modal reparenting and unmount remove owned listeners and tweens.
+- Temporary pointer exit/window blur pauses the reusable position tweens; re-entry resets their start and destination before continuing. Only effect disposal kills them. Killing an active `quickTo` tween during temporary hiding destroys the property tracks and can freeze subsequent movement.

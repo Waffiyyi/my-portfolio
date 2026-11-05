@@ -13,6 +13,7 @@ import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
 import { site } from "@/data/site";
 import { Reveal } from "./motion";
+import { CursorEffect } from "./cursor-effect";
 const TransitionContext = createContext<(href: string) => void>(() => {});
 export function MotionLink({
   href,
@@ -345,6 +346,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <span className="eyebrow">Surface / System</span>
       </div>
       <Loader />
+      <CursorEffect container={menuOpen ? menu.current : null} />
     </TransitionContext.Provider>
   );
 }

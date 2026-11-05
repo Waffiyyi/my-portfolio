@@ -52,6 +52,8 @@ GSAP/ScrollTrigger uses component-scoped cleanup and viewport-derived track dist
 
 The reference’s wheel-intercepted street/factory is intentionally adapted to normal document scroll with measured pin distances. See `docs/reference-audit.md` and `docs/motion-spec.md` for measurements and deviations.
 
+The optional pointer effect matches the supplied recording and reference: a 7px dot, a thin trailing ring, expanded control hover, and a red “View” state over project cards. It adapts to light/dark surfaces while preserving the native cursor. Touch, widths up to 860px and reduced-motion preferences disable the decoration. `components/portfolio/cursor-effect.tsx` owns its listeners/tweens and keeps the effect usable across route changes and modal navigation.
+
 The loader is limited to the first document visit per session, observes font readiness and has a timeout and skip control. Route transitions have a watchdog and preserve native links, direct entry and browser history.
 
 ## Contact delivery

@@ -14,7 +14,11 @@ export function ProjectCard({
       data-track-item
       data-category={project.category}
     >
-      <MotionLink href={`/work/${project.slug}`} className="project-link">
+      <MotionLink
+        href={`/work/${project.slug}`}
+        className="project-link"
+        data-cursor-label="View"
+      >
         <div className="project-card-top">
           <span className="mono">
             {String(index + 1).padStart(2, "0")} / {project.category}
